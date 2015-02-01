@@ -18,7 +18,7 @@
 #
 
 # source is yafra ubuntu
-FROM yafraorg / docker-yafrabase
+FROM yafraorg/docker-yafrabase
 
 MAINTAINER Martin Weber <info@yafra.org>
 
