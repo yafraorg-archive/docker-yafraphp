@@ -24,8 +24,8 @@ MAINTAINER Martin Weber <info@yafra.org>
 
 # Install PHP / Apache2 packages
 RUN apt-get update && \
-  apt-get install -yq apache2 apache2-mpm-prefork apache2-utils apache2.2-common libapache2-mod-php5 libapr1 libaprutil1  && \
-  apt-get install -yq libpq5 mysql-client-5.5 php5-common php5-mysql curl php5-curl php5-mysqlnd && \
+  apt-get install -yq apache2 apache2-mpm-prefork apache2-utils libapache2-mod-php5 libapr1 libaprutil1  && \
+  apt-get install -yq libpq5 mysql-client-5.5 php5-common curl php5-curl php5-mysqlnd && \
   rm -rf /var/lib/apt/lists/*
 
 # Install PHP composer
