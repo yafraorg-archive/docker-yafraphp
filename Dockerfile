@@ -32,3 +32,6 @@ RUN apt-get update && \
 RUN curl -s http://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin
 RUN cd /work/repos && git clone https://github.com/yafraorg/yafra-php.git
+
+EXPOSE 80
+CMD ["/work/repos/yafra-php/run-docker.sh"]
