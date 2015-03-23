@@ -24,15 +24,16 @@ MAINTAINER Martin Weber <info@yafra.org>
 
 # Install PHP / Apache2 packages
 RUN apt-get update && \
+  curl -sL https://deb.nodesource.com/setup | sudo bash - && \
   apt-get install -yq apache2 apache2-mpm-prefork apache2-utils libapache2-mod-php5 libapr1 libaprutil1  && \
-  apt-get install -yq libpq5 mysql-client-5.5 php5-common curl php5-curl php5-mysqlnd && \
+  apt-get install -yq libpq5 mysql-client-5.5 php5-common curl php5-curl php5-mysqlnd nodejs && \
   rm -rf /var/lib/apt/lists/*
 
 # Install PHP composer
 RUN curl -s http://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin
 RUN cd /work/repos && git clone https://github.com/yafraorg/yafra-php.git
-RUN ln -s /work/repos/yafra-php /var/www/html/yafra-php
+RUN rm /var/www/html/*
 
 EXPOSE 80
 CMD ["/work/repos/yafra-php/run-docker.sh"]
