@@ -10,6 +10,7 @@ export WORKNODE=/work/yafra-runtime
 
 echo "Install nodejs dependencies and prepare html front end pages"
 cd $PHPNODE
+git pull
 npm install
 bower --allow-root install
 cp -r backend /var/www/html
