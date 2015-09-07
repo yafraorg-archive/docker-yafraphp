@@ -29,6 +29,9 @@ RUN apt-get update && \
   apt-get install -yq libpq5 mysql-client-5.5 php5-common curl php5-curl php5-mysqlnd nodejs && \
   rm -rf /var/lib/apt/lists/*
 
+# Install NodeJS packages
+RUN npm -g install bower gulp-cli
+
 # Install PHP composer
 RUN curl -s http://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin
