@@ -34,6 +34,7 @@ echo "if you want the apache rewrite htaccess enable: AllowOverride All"
 echo "start apache web server"
 cd
 a2enmod rewrite
-apache2ctl start
+#can not be used as process needs to be kept running within this script: apache2ctl start
+/bin/bash -c "source /etc/apache2/envvars && /usr/sbin/apache2 -DFOREGROUND"
 
 echo "access it through http://server/rest/index.php/persons "
