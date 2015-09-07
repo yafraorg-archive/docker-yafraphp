@@ -35,5 +35,15 @@ RUN mv composer.phar /usr/local/bin
 RUN cd /work/repos && git clone https://github.com/yafraorg/yafra-php.git
 RUN rm /var/www/html/*
 
-EXPOSE 80
-CMD ["/work/repos/yafra-php/run-docker.sh"]
+# change default port of apache
+RUN sed -i "/Listen/s/80/8083/" /etc/apache2/ports.conf
+
+COPY run-docker.sh /work/run-docker.sh
+RUN cd /work && \
+  chmod 755 run-docker.sh
+
+WORKDIR /work
+
+EXPOSE 8083
+
+CMD ["/work/run-docker.sh"]
