@@ -6,13 +6,13 @@ export BASENODE=/work/repos
 export PHPNODE=$BASENODE/yafra-php
 export SYSADM=$BASENODE/yafra/org.yafra.sysadm
 export WORKNODE=/work/yafra-runtime
-
+export CI=true
 
 echo "Install nodejs dependencies and prepare html front end pages"
 cd $PHPNODE
 git pull
-npm install
-bower --allow-root install
+npm -q install
+bower --quite --allow-root install
 cp -r backend /var/www/html
 cp -r rest /var/www/html
 cp -r bower_components /var/www/html
